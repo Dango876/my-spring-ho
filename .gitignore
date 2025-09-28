@@ -1,2 +1,17 @@
-/.idea/
+# Maven build
 /target/
+/!mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+*.iws
+*.ipr
+.gradle/
+
+# OS-specific
+.DS_Store
+desktop.ini
+
+# VS Code (если кто-то использует)
+/.vscode/
