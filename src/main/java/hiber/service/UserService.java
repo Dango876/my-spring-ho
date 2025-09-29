@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserService {
     void add(User user);
 
-    List<User> listUsers();
+    List<User> getAllUsers();
 
     @Transactional(readOnly = true)
     User getUserByCar(String model, int series);
