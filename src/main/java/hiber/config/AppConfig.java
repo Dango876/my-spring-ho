@@ -33,7 +33,7 @@ public class AppConfig {
     }
 
     @Bean
-    public DataSource getDataSource() {
+    public DataSource createDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
@@ -43,9 +43,9 @@ public class AppConfig {
     }
 
     @Bean
-    public LocalSessionFactoryBean getSessionFactory() {
+    public LocalSessionFactoryBean createSessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-        factoryBean.setDataSource(getDataSource());
+        factoryBean.setDataSource(createDataSource());
 
         Properties props = new Properties();
         props.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
@@ -59,9 +59,9 @@ public class AppConfig {
     }
 
     @Bean
-    public HibernateTransactionManager getTransactionManager() {
+    public HibernateTransactionManager createTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(getSessionFactory().getObject());
+        transactionManager.setSessionFactory(createSessionFactory().getObject());
         return transactionManager;
     }
 }

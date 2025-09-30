@@ -20,8 +20,8 @@ public class UserServiceImp implements UserService {
 
     @Transactional
     @Override
-    public void add(User user) {
-        userDao.add(user);
+    public void addUser(User user) {
+        userDao.addUser(user);
     }
 
     @Transactional(readOnly = true)
@@ -32,7 +32,7 @@ public class UserServiceImp implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-    public User getUserByCar(String model, int series) {
-        return userDao.getUserByCar(model, series);
+    public User findUserByCarModelAndSeries(String model, int series) {
+        return userDao.findUserByCarModelAndSeries(model, series);
     }
 }

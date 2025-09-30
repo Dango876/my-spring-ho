@@ -25,7 +25,7 @@ public class UserDaoImp implements UserDao {
 
 
     @Override
-    public void add(User user) {
+    public void addUser(User user) {
         sessionFactory.getCurrentSession().persist(user);
     }
 
@@ -38,7 +38,7 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User getUserByCar(String model, int series) {
+    public User findUserByCarModelAndSeries(String model, int series) {
         TypedQuery<User> query = sessionFactory.getCurrentSession()
                 .createQuery(GET_USER_BY_CAR_QUERY, User.class);
         query.setParameter("model", model);
